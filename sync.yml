@@ -1,32 +1,36 @@
-name: Twitch → Google Calendar Sync
+name: Generate Twitch Calendar
 
 on:
   schedule:
-    - cron: "0 10 * * 0"  # every Sunday
+    - cron: "0 10 * * 0"
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
-  sync:
+  build:
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v4
 
-      - name: Setup Python
-        uses: actions/setup-python@v5
+      - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
 
-      - name: Install dependencies
-        run: pip install -r requirements.txt
+      - run: pip install -r requirements.txt
 
-      - name: Load Google credentials
-        run: echo '${{ secrets.GOOGLE_SERVICE_ACCOUNT }}' > service_account.json
-
-      - name: Run sync
+      - run: python main.py
         env:
           TWITCH_CLIENT_ID: ${{ secrets.TWITCH_CLIENT_ID }}
           TWITCH_TOKEN: ${{ secrets.TWITCH_TOKEN }}
           TWITCH_BROADCASTER_ID: ${{ secrets.TWITCH_BROADCASTER_ID }}
-          GOOGLE_CALENDAR_ID: ${{ secrets.GOOGLE_CALENDAR_ID }}
-        run: python main.py
+
+      - name: Commit calendar
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add calendar.ics
+          git commit -m "Update calendar" || echo "No changes"
+          git push
