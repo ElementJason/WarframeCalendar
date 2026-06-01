@@ -63,7 +63,8 @@ ics = [
     "VERSION:2.0",
     "CALSCALE:GREGORIAN",
     "METHOD:PUBLISH",
-    "PRODID:-//Twitch Calendar//EN"
+    "PRODID:-//Twitch Calendar//EN",
+    "X-WR-TIMEZONE:UTC"
 ]
 
 for s in segments:
