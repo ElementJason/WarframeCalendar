@@ -73,8 +73,10 @@ for s in segments:
     ics.append("BEGIN:VEVENT")
     ics.append(f"UID:{s.get('id','no-id')}")
     ics.append(f"SUMMARY:{s.get('title','Twitch Stream')}")
+
     ics.append(f"DTSTART:{start}")
     ics.append(f"DTEND:{end}")
+
     ics.append("END:VEVENT")
 
 ics.append("END:VCALENDAR")
