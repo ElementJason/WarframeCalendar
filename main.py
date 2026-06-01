@@ -7,7 +7,9 @@ TWITCH_TOKEN = os.environ["TWITCH_TOKEN"]
 BROADCASTER_ID = os.environ["TWITCH_BROADCASTER_ID"]
 
 def get_schedule():
-    url = f"https://api.twitch.tv/helix/schedule?broadcaster_id={BROADCASTER_ID}"
+    broadcaster_id = get_broadcaster_id()
+
+    url = f"https://api.twitch.tv/helix/schedule?broadcaster_id={broadcaster_id}"
 
     headers = {
         "Client-ID": TWITCH_CLIENT_ID,
@@ -15,15 +17,9 @@ def get_schedule():
     }
 
     r = requests.get(url, headers=headers)
-
-    print("STATUS:", r.status_code)
-    print("RESPONSE:", r.text)
-
     r.raise_for_status()
 
-    data = r.json()
-
-    return data.get("data", {}).get("segments", [])
+    return r.json()["data"]["segments"]
 
 def dt_to_ics(dt):
     return datetime.fromisoformat(
