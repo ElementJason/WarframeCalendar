@@ -1,46 +1,69 @@
 import os
 import requests
-from datetime import datetime
 
 TWITCH_CLIENT_ID = os.environ["TWITCH_CLIENT_ID"]
 TWITCH_TOKEN = os.environ["TWITCH_TOKEN"]
 
-CHANNEL_NAME = "warframe"
+CHANNEL = "warframe"
 
 
-def get_headers():
+def headers():
     return {
         "Client-ID": TWITCH_CLIENT_ID,
         "Authorization": f"Bearer {TWITCH_TOKEN}"
     }
 
 
-def get_broadcaster_id():
-    url = f"https://api.twitch.tv/helix/users?login=warframe"
-
-    r = requests.get(url, headers=get_headers())
-    data = r.json()
-
-    print("USER API RESPONSE:", data)
-
-    if "data" not in data or len(data["data"]) == 0:
-        raise Exception("Failed to fetch broadcaster ID")
-
-    return data["data"][0]["id"]
-
-
 def get_schedule():
-    broadcaster_id = get_broadcaster_id()
+    # get user id
+    user = requests.get(
+        f"https://api.twitch.tv/helix/users?login={CHANNEL}",
+        headers=headers()
+    ).json()
 
-    print("BROADCASTER ID:", broadcaster_id)
+    print("USER RESPONSE:", user)
 
-    url = f"https://api.twitch.tv/helix/schedule?broadcaster_id={broadcaster_id}"
+    if not user.get("data"):
+        return []
 
-    r = requests.get(url, headers=get_headers())
+    user_id = user["data"][0]["id"]
+    print("USER ID:", user_id)
 
-    print("STATUS:", r.status_code)
-    print("RESPONSE:", r.text)
+    # get schedule
+    sched = requests.get(
+        f"https://api.twitch.tv/helix/schedule?broadcaster_id={user_id}",
+        headers=headers()
+    )
 
-    r.raise_for_status()
+    print("SCHEDULE STATUS:", sched.status_code)
+    print("SCHEDULE TEXT:", sched.text)
 
-    return r.json().get("data", {}).get("segments", [])
+    if sched.status_code != 200:
+        return []
+
+    return sched.json().get("data", {}).get("segments", [])
+
+
+segments = get_schedule()
+
+# ALWAYS create file even if empty
+ics = [
+    "BEGIN:VCALENDAR",
+    "VERSION:2.0",
+    "PRODID:-//Twitch Calendar//EN"
+]
+
+for s in segments:
+    ics.append("BEGIN:VEVENT")
+    ics.append(f"UID:{s.get('id','no-id')}")
+    ics.append(f"SUMMARY:{s.get('title','Twitch Stream')}")
+    ics.append(f"DTSTART:{s.get('start_time','')}")
+    ics.append(f"DTEND:{s.get('end_time','')}")
+    ics.append("END:VEVENT")
+
+ics.append("END:VCALENDAR")
+
+with open("calendar.ics", "w", encoding="utf-8") as f:
+    f.write("\n".join(ics))
+
+print("calendar.ics CREATED with", len(segments), "events")
