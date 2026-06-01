@@ -15,9 +15,15 @@ def get_schedule():
     }
 
     r = requests.get(url, headers=headers)
+
+    print("STATUS:", r.status_code)
+    print("RESPONSE:", r.text)
+
     r.raise_for_status()
 
-    return r.json()["data"]["segments"]
+    data = r.json()
+
+    return data.get("data", {}).get("segments", [])
 
 def dt_to_ics(dt):
     return datetime.fromisoformat(
