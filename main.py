@@ -46,19 +46,35 @@ def get_schedule():
 
 segments = get_schedule()
 
+def to_ics_time(dt):
+    # Converts: 2026-06-02T18:00:00Z → 20260602T180000Z
+    return (
+        dt.replace("-", "")
+          .replace(":", "")
+          .replace(".000", "")
+          .replace("Z", "")
+        + "Z"
+    )
+
+
 # ALWAYS create file even if empty
 ics = [
     "BEGIN:VCALENDAR",
     "VERSION:2.0",
+    "CALSCALE:GREGORIAN",
+    "METHOD:PUBLISH",
     "PRODID:-//Twitch Calendar//EN"
 ]
 
 for s in segments:
+    start = to_ics_time(s.get("start_time", ""))
+    end = to_ics_time(s.get("end_time", ""))
+
     ics.append("BEGIN:VEVENT")
     ics.append(f"UID:{s.get('id','no-id')}")
     ics.append(f"SUMMARY:{s.get('title','Twitch Stream')}")
-    ics.append(f"DTSTART:{s.get('start_time','')}")
-    ics.append(f"DTEND:{s.get('end_time','')}")
+    ics.append(f"DTSTART:{start}")
+    ics.append(f"DTEND:{end}")
     ics.append("END:VEVENT")
 
 ics.append("END:VCALENDAR")
