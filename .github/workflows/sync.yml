@@ -2,7 +2,7 @@ name: Generate Twitch Calendar
 
 on:
   schedule:
-    - cron: "0 10 * * 0"
+    - cron: "0 0 */2 * *"
   workflow_dispatch:
 
 permissions:
@@ -21,7 +21,8 @@ jobs:
 
       - run: pip install -r requirements.txt
 
-      - run: python main.py
+      - name: Run script
+        run: python main.py
         env:
           TWITCH_CLIENT_ID: ${{ secrets.TWITCH_CLIENT_ID }}
           TWITCH_TOKEN: ${{ secrets.TWITCH_TOKEN }}
@@ -29,9 +30,13 @@ jobs:
 
       - name: Commit calendar
         run: |
-          ls -la
           git config user.name github-actions
           git config user.email github-actions@github.com
+
           git add calendar.ics
+
           git commit -m "Update calendar" || echo "No changes"
-          git push
+
+          git pull --rebase origin main
+
+          git push origin main

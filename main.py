@@ -4,7 +4,11 @@ import requests
 TWITCH_CLIENT_ID = os.environ["TWITCH_CLIENT_ID"]
 TWITCH_TOKEN = os.environ["TWITCH_TOKEN"]
 
-CHANNEL = "warframe"
+# 👉 Add more channels here anytime
+CHANNELS = [
+    "warframe"
+    "warframeinternational"
+]
 
 
 def headers():
@@ -14,40 +18,58 @@ def headers():
     }
 
 
-def get_schedule():
-    # get user id
+def get_user_id(channel):
     user = requests.get(
-        f"https://api.twitch.tv/helix/users?login={CHANNEL}",
+        f"https://api.twitch.tv/helix/users?login={channel}",
         headers=headers()
     ).json()
 
-    print("USER RESPONSE:", user)
+    print(f"USER RESPONSE ({channel}):", user)
 
     if not user.get("data"):
-        return []
+        return None
 
-    user_id = user["data"][0]["id"]
-    print("USER ID:", user_id)
+    return user["data"][0]["id"]
 
-    # get schedule
+
+def get_schedule_for_user(user_id, channel):
     sched = requests.get(
         f"https://api.twitch.tv/helix/schedule?broadcaster_id={user_id}",
         headers=headers()
     )
 
-    print("SCHEDULE STATUS:", sched.status_code)
-    print("SCHEDULE TEXT:", sched.text)
+    print(f"SCHEDULE STATUS ({channel}):", sched.status_code)
+    print(f"SCHEDULE TEXT ({channel}):", sched.text)
 
     if sched.status_code != 200:
         return []
 
-    return sched.json().get("data", {}).get("segments", [])
+    segments = sched.json().get("data", {}).get("segments", [])
+
+    # tag channel into event
+    for s in segments:
+        s["channel"] = channel
+
+    return segments
 
 
-segments = get_schedule()
+def get_all_segments():
+    all_segments = []
+
+    for channel in CHANNELS:
+        user_id = get_user_id(channel)
+
+        if not user_id:
+            print(f"Skipping {channel} (no user id)")
+            continue
+
+        segments = get_schedule_for_user(user_id, channel)
+        all_segments.extend(segments)
+
+    return all_segments
+
 
 def to_ics_time(dt):
-    # Converts: 2026-06-02T18:00:00Z → 20260602T180000Z
     return (
         dt.replace("-", "")
           .replace(":", "")
@@ -55,6 +77,9 @@ def to_ics_time(dt):
           .replace("Z", "")
         + "Z"
     )
+
+
+segments = get_all_segments()
 
 
 # ALWAYS create file even if empty
@@ -71,13 +96,13 @@ for s in segments:
     start = to_ics_time(s.get("start_time", ""))
     end = to_ics_time(s.get("end_time", ""))
 
+    channel = s.get("channel", "unknown")
+
     ics.append("BEGIN:VEVENT")
     ics.append(f"UID:{s.get('id','no-id')}")
-    ics.append(f"SUMMARY:{s.get('title','Twitch Stream')}")
-
+    ics.append(f"SUMMARY:{channel} - {s.get('title','Twitch Stream')}")
     ics.append(f"DTSTART:{start}")
     ics.append(f"DTEND:{end}")
-
     ics.append("END:VEVENT")
 
 ics.append("END:VCALENDAR")
