@@ -4,4 +4,130 @@ CALSCALE:GREGORIAN
 METHOD:PUBLISH
 PRODID:-//Twitch Calendar//EN
 X-WR-TIMEZONE:UTC
+BEGIN:VEVENT
+UID:eyJzZWdtZW50SUQiOiIzMjBhMDFkYy1kNDBlLTQ2ZTktOTUyNy0zZTcyMzczYTI1Y2MiLCJpc29ZZWFyIjoyMDI2LCJpc29XZWVrIjoyNH0=
+SUMMARY:warframe - Pride Time #486 - Thursday, June 11 @ 6pm ET
+DTSTART:20260611T220000Z
+DTEND:20260612T000000Z
+END:VEVENT
+BEGIN:VEVENT
+UID:eyJzZWdtZW50SUQiOiJiYWM3MzE3Ni1iYjZjLTRmNGUtODBiMi01N2JjZDA5YjE5ZDAiLCJpc29ZZWFyIjoyMDI2LCJpc29XZWVrIjoyNH0=
+SUMMARY:warframeinternational - Emisión Tenno - Stream oficial del equipo de Warframe para la comunidad de habla hispana
+DTSTART:20260610T190000Z
+DTEND:20260610T200000Z
+END:VEVENT
+BEGIN:VEVENT
+UID:eyJzZWdtZW50SUQiOiJiYWM3MzE3Ni1iYjZjLTRmNGUtODBiMi01N2JjZDA5YjE5ZDAiLCJpc29ZZWFyIjoyMDI2LCJpc29XZWVrIjoyNX0=
+SUMMARY:warframeinternational - Emisión Tenno - Stream oficial del equipo de Warframe para la comunidad de habla hispana
+DTSTART:20260617T190000Z
+DTEND:20260617T200000Z
+END:VEVENT
+BEGIN:VEVENT
+UID:eyJzZWdtZW50SUQiOiJiYWM3MzE3Ni1iYjZjLTRmNGUtODBiMi01N2JjZDA5YjE5ZDAiLCJpc29ZZWFyIjoyMDI2LCJpc29XZWVrIjoyNn0=
+SUMMARY:warframeinternational - Emisión Tenno - Stream oficial del equipo de Warframe para la comunidad de habla hispana
+DTSTART:20260624T190000Z
+DTEND:20260624T200000Z
+END:VEVENT
+BEGIN:VEVENT
+UID:eyJzZWdtZW50SUQiOiJiYWM3MzE3Ni1iYjZjLTRmNGUtODBiMi01N2JjZDA5YjE5ZDAiLCJpc29ZZWFyIjoyMDI2LCJpc29XZWVrIjoyN30=
+SUMMARY:warframeinternational - Emisión Tenno - Stream oficial del equipo de Warframe para la comunidad de habla hispana
+DTSTART:20260701T190000Z
+DTEND:20260701T200000Z
+END:VEVENT
+BEGIN:VEVENT
+UID:eyJzZWdtZW50SUQiOiJiYWM3MzE3Ni1iYjZjLTRmNGUtODBiMi01N2JjZDA5YjE5ZDAiLCJpc29ZZWFyIjoyMDI2LCJpc29XZWVrIjoyOH0=
+SUMMARY:warframeinternational - Emisión Tenno - Stream oficial del equipo de Warframe para la comunidad de habla hispana
+DTSTART:20260708T190000Z
+DTEND:20260708T200000Z
+END:VEVENT
+BEGIN:VEVENT
+UID:eyJzZWdtZW50SUQiOiJiYWM3MzE3Ni1iYjZjLTRmNGUtODBiMi01N2JjZDA5YjE5ZDAiLCJpc29ZZWFyIjoyMDI2LCJpc29XZWVrIjoyOX0=
+SUMMARY:warframeinternational - Emisión Tenno - Stream oficial del equipo de Warframe para la comunidad de habla hispana
+DTSTART:20260715T190000Z
+DTEND:20260715T200000Z
+END:VEVENT
+BEGIN:VEVENT
+UID:eyJzZWdtZW50SUQiOiJiYWM3MzE3Ni1iYjZjLTRmNGUtODBiMi01N2JjZDA5YjE5ZDAiLCJpc29ZZWFyIjoyMDI2LCJpc29XZWVrIjozMH0=
+SUMMARY:warframeinternational - Emisión Tenno - Stream oficial del equipo de Warframe para la comunidad de habla hispana
+DTSTART:20260722T190000Z
+DTEND:20260722T200000Z
+END:VEVENT
+BEGIN:VEVENT
+UID:eyJzZWdtZW50SUQiOiJiYWM3MzE3Ni1iYjZjLTRmNGUtODBiMi01N2JjZDA5YjE5ZDAiLCJpc29ZZWFyIjoyMDI2LCJpc29XZWVrIjozMX0=
+SUMMARY:warframeinternational - Emisión Tenno - Stream oficial del equipo de Warframe para la comunidad de habla hispana
+DTSTART:20260729T190000Z
+DTEND:20260729T200000Z
+END:VEVENT
+BEGIN:VEVENT
+UID:eyJzZWdtZW50SUQiOiJiYWM3MzE3Ni1iYjZjLTRmNGUtODBiMi01N2JjZDA5YjE5ZDAiLCJpc29ZZWFyIjoyMDI2LCJpc29XZWVrIjozMn0=
+SUMMARY:warframeinternational - Emisión Tenno - Stream oficial del equipo de Warframe para la comunidad de habla hispana
+DTSTART:20260805T190000Z
+DTEND:20260805T200000Z
+END:VEVENT
+BEGIN:VEVENT
+UID:eyJzZWdtZW50SUQiOiJiYWM3MzE3Ni1iYjZjLTRmNGUtODBiMi01N2JjZDA5YjE5ZDAiLCJpc29ZZWFyIjoyMDI2LCJpc29XZWVrIjozM30=
+SUMMARY:warframeinternational - Emisión Tenno - Stream oficial del equipo de Warframe para la comunidad de habla hispana
+DTSTART:20260812T190000Z
+DTEND:20260812T200000Z
+END:VEVENT
+BEGIN:VEVENT
+UID:eyJzZWdtZW50SUQiOiJiYWM3MzE3Ni1iYjZjLTRmNGUtODBiMi01N2JjZDA5YjE5ZDAiLCJpc29ZZWFyIjoyMDI2LCJpc29XZWVrIjozNH0=
+SUMMARY:warframeinternational - Emisión Tenno - Stream oficial del equipo de Warframe para la comunidad de habla hispana
+DTSTART:20260819T190000Z
+DTEND:20260819T200000Z
+END:VEVENT
+BEGIN:VEVENT
+UID:eyJzZWdtZW50SUQiOiJiYWM3MzE3Ni1iYjZjLTRmNGUtODBiMi01N2JjZDA5YjE5ZDAiLCJpc29ZZWFyIjoyMDI2LCJpc29XZWVrIjozNX0=
+SUMMARY:warframeinternational - Emisión Tenno - Stream oficial del equipo de Warframe para la comunidad de habla hispana
+DTSTART:20260826T190000Z
+DTEND:20260826T200000Z
+END:VEVENT
+BEGIN:VEVENT
+UID:eyJzZWdtZW50SUQiOiJiYWM3MzE3Ni1iYjZjLTRmNGUtODBiMi01N2JjZDA5YjE5ZDAiLCJpc29ZZWFyIjoyMDI2LCJpc29XZWVrIjozNn0=
+SUMMARY:warframeinternational - Emisión Tenno - Stream oficial del equipo de Warframe para la comunidad de habla hispana
+DTSTART:20260902T190000Z
+DTEND:20260902T200000Z
+END:VEVENT
+BEGIN:VEVENT
+UID:eyJzZWdtZW50SUQiOiJiYWM3MzE3Ni1iYjZjLTRmNGUtODBiMi01N2JjZDA5YjE5ZDAiLCJpc29ZZWFyIjoyMDI2LCJpc29XZWVrIjozN30=
+SUMMARY:warframeinternational - Emisión Tenno - Stream oficial del equipo de Warframe para la comunidad de habla hispana
+DTSTART:20260909T190000Z
+DTEND:20260909T200000Z
+END:VEVENT
+BEGIN:VEVENT
+UID:eyJzZWdtZW50SUQiOiJiYWM3MzE3Ni1iYjZjLTRmNGUtODBiMi01N2JjZDA5YjE5ZDAiLCJpc29ZZWFyIjoyMDI2LCJpc29XZWVrIjozOH0=
+SUMMARY:warframeinternational - Emisión Tenno - Stream oficial del equipo de Warframe para la comunidad de habla hispana
+DTSTART:20260916T190000Z
+DTEND:20260916T200000Z
+END:VEVENT
+BEGIN:VEVENT
+UID:eyJzZWdtZW50SUQiOiJiYWM3MzE3Ni1iYjZjLTRmNGUtODBiMi01N2JjZDA5YjE5ZDAiLCJpc29ZZWFyIjoyMDI2LCJpc29XZWVrIjozOX0=
+SUMMARY:warframeinternational - Emisión Tenno - Stream oficial del equipo de Warframe para la comunidad de habla hispana
+DTSTART:20260923T190000Z
+DTEND:20260923T200000Z
+END:VEVENT
+BEGIN:VEVENT
+UID:eyJzZWdtZW50SUQiOiJiYWM3MzE3Ni1iYjZjLTRmNGUtODBiMi01N2JjZDA5YjE5ZDAiLCJpc29ZZWFyIjoyMDI2LCJpc29XZWVrIjo0MH0=
+SUMMARY:warframeinternational - Emisión Tenno - Stream oficial del equipo de Warframe para la comunidad de habla hispana
+DTSTART:20260930T190000Z
+DTEND:20260930T200000Z
+END:VEVENT
+BEGIN:VEVENT
+UID:eyJzZWdtZW50SUQiOiJiYWM3MzE3Ni1iYjZjLTRmNGUtODBiMi01N2JjZDA5YjE5ZDAiLCJpc29ZZWFyIjoyMDI2LCJpc29XZWVrIjo0MX0=
+SUMMARY:warframeinternational - Emisión Tenno - Stream oficial del equipo de Warframe para la comunidad de habla hispana
+DTSTART:20261007T190000Z
+DTEND:20261007T200000Z
+END:VEVENT
+BEGIN:VEVENT
+UID:eyJzZWdtZW50SUQiOiJiYWM3MzE3Ni1iYjZjLTRmNGUtODBiMi01N2JjZDA5YjE5ZDAiLCJpc29ZZWFyIjoyMDI2LCJpc29XZWVrIjo0Mn0=
+SUMMARY:warframeinternational - Emisión Tenno - Stream oficial del equipo de Warframe para la comunidad de habla hispana
+DTSTART:20261014T190000Z
+DTEND:20261014T200000Z
+END:VEVENT
+BEGIN:VEVENT
+UID:eyJzZWdtZW50SUQiOiJiYWM3MzE3Ni1iYjZjLTRmNGUtODBiMi01N2JjZDA5YjE5ZDAiLCJpc29ZZWFyIjoyMDI2LCJpc29XZWVrIjo0M30=
+SUMMARY:warframeinternational - Emisión Tenno - Stream oficial del equipo de Warframe para la comunidad de habla hispana
+DTSTART:20261021T190000Z
+DTEND:20261021T200000Z
+END:VEVENT
 END:VCALENDAR
