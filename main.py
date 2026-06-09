@@ -6,7 +6,7 @@ TWITCH_TOKEN = os.environ["TWITCH_TOKEN"]
 
 # 👉 Add more channels here anytime
 CHANNELS = [
-    "warframe"
+    "warframe",
     "warframeinternational"
 ]
 
